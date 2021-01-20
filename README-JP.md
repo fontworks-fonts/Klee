@@ -39,7 +39,7 @@
 * 個人利用・商用利用にかかわらずどなたでも無料でお使いいただけます。
 * ゲームやアプリなどへの組み込みやwebフォントとしての利用も可能です。
 * このフォントを使用し、派生フォントを作ることもできます。ただし、配布の際はSIL Open Font Licenseに基づいてリリースする必要があります。
-* SILライセンスについて詳しくは[SIL Open Font License 1.1 日本語訳](https://ja.osdn.net/projects/opensource/wiki/SIL_Open_Font_License_1.1)または同梱の「OFL.txt」(英語)をご確認ください。
+* SILライセンスについて詳しくは[SIL Open Font License 1.1 日本語訳](https://licenses.opensource.jp/OFL-1.1/OFL-1.1.html)または同梱の「OFL.txt」(英語)をご確認ください。
 
 
 ### 収録文字
