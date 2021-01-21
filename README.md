@@ -6,7 +6,7 @@
 
 ## Klee One
 
-Klee is a script font handwritten by pencil or pen. Its quiet design has an elegant and slightly feminine look that sets itself apart from traditional script and textbook fonts. Ideal for body text.
+Klee is a script font handwritten by pencil or pen. It's quiet design has an elegant look that sets itself apart from traditional script and textbook fonts. Ideal for body text.
 [Learn more](https://fontworks.co.jp/fontsearch/KleePro-M/).
 
 
