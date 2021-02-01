@@ -45,5 +45,10 @@ for font in Path("fonts/ttf/").glob("*.ttf"):
             hintedName,
         ]
     )
+    
+    print ("["+str(font).split("/")[2][:-4]+"] Modifying gasp table")
+    modifiedFont = TTFont(hintedName)
+    modifiedFont["gasp"].gaspRange = {256: 10, 65535: 15}
+    modifiedFont.save(hintedName)
 
     shutil.move(hintedName, fontName)
