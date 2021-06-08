@@ -4,6 +4,13 @@ from fontTools.ttLib import TTFont, newTable
 import shutil, subprocess, glob
 from pathlib import Path
 
+def GASP_set(font:TTFont):
+    if "gasp" not in font:
+        font["gasp"] = newTable("gasp")
+        font["gasp"].gaspRange = {}
+    if font["gasp"].gaspRange != {65535: 0x000A}:
+        font["gasp"].gaspRange = {65535: 0x000A}
+
 print ("[Klee One] Generating TTFs")
 for source in Path("sources").glob("*.glyphs"):
     __main__.main(("-g",str(source), "--keep-overlaps", "-o","ttf",))
@@ -26,29 +33,9 @@ for font in Path("master_ttf").glob("*.ttf"):
         modifiedFont["name"].addMultilingualName({'ja':'SemiBold'}, modifiedFont, nameID = 2, windows=True, mac=False)
     elif "Regular" in str(font):
         modifiedFont["name"].addMultilingualName({'ja':'Regular'}, modifiedFont, nameID = 2, windows=True, mac=False)
+    GASP_set(modifiedFont)
     modifiedFont.save("fonts/ttf/"+str(font).split("/")[1])
 
 shutil.rmtree("instance_ufo")
 shutil.rmtree("master_ufo")
 shutil.rmtree("master_ttf")
-
-for font in Path("fonts/ttf/").glob("*.ttf"):
-    print ("["+str(font).split("/")[2][:-4]+"] Autohinting")
-    fontName = str(font)
-    hintedName = fontName[:-4]+"-hinted.ttf"
-    subprocess.check_call(
-        [
-            "ttfautohint",
-            "--stem-width",
-            "nsn",
-            fontName,
-            hintedName,
-        ]
-    )
-    
-    print ("["+str(font).split("/")[2][:-4]+"] Modifying gasp table")
-    modifiedFont = TTFont(hintedName)
-    modifiedFont["gasp"].gaspRange = {256: 10, 65535: 15}
-    modifiedFont.save(hintedName)
-
-    shutil.move(hintedName, fontName)
