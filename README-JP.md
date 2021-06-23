@@ -33,6 +33,9 @@
 
     $ python build.py
 
+**--autohinting**コマンドラインオプションを指定すると、ttfautohintを使用してヒントを付与します。
+
+    $ python build.py --autohinting
 
 ### ライセンス
 
